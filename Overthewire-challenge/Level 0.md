@@ -7,5 +7,6 @@ Action taken:
 - run command and used password to log in `command`
 
 ```bash
-cat file1.txt
+cat readme
 ```
+<img width="592" height="219" alt="image" src="https://github.com/user-attachments/assets/0d4dafed-71ec-44fe-8b09-ad1a39655256" />
