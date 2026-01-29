@@ -20,3 +20,16 @@ i followed it with the `cat` command
 cat /var/lib/dpkg/info/bandit7.password
 ```
 ***Password:*** `morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj`
+
+<img width="830" height="299" alt="image" src="https://github.com/user-attachments/assets/61e2b910-a153-443f-9859-ba2acd99ce9d" />
+
+After seeing many permission denied messages,I redirected all of them to /dev/null by adding 2> /dev/null to my command
+
+This printed the file `./maybehere07/.file2`
+I ran the `cat` command to list the contents in the file
+```bash
+cat ./maybehere07/.file2
+```
+***Pasword:*** `HWasnPhtq9AVKe0dmk45nxy20cvUa6EG`
+
+<img width="3" height="1" alt="image" src="https://github.com/user-attachments/assets/5754a7fc-9e87-4e63-9585-b1f7f489a89f" />
