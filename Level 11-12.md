@@ -1,0 +1,19 @@
+## Level 11 - 12
+***Aim:*** Find the password from file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+The helpful reading material went through ROT13 which explained the aim, now we needed to translate that into a command
+
+***Action taken:*** 
+- used the `ls` command to list the contents
+- Seen that the `data.txt` file was in the current working directory
+- used the `cat data.txt` command to show the conents of the file
+- the file printed `Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4`
+- It was clear that this is the part that needed to be translated, so i ran the cat command followed by the tr command
+
+```bash
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+
+***Level 12 Password:*** `7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4`
+
+<img width="538" height="152" alt="Screenshot 2026-01-20 at 02 04 05" src="https://github.com/user-attachments/assets/c8254df6-45f7-4f1e-b50f-cced046cc185" />
