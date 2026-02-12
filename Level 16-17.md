@@ -1,0 +1,51 @@
+## Level 16-17
+
+***Aim:*** Find the credentials for the next level by submitting the password if the previous level to a port on localhost that has the following properties:
+
+- port number: between 31000 and 32000
+- a port that has a server listening on it
+- find out which of those speak SSL/TLS and which don’t
+- There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+
+`nmap` is a network mapper and can be used as a port scanner.
+
+I used `nmap` to search for ports between 31000 and 32000 that were open, this also means that it has a server listening on it and it displayed 5 different ports.
+
+```bash
+nmap -p 31000-32000 localhost
+```
+
+It printed
+
+```bash
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+```
+
+I ran the `openssl` command to find the port we are looking for
+
+```bash
+openssl s_client -connect localhost:<port number>
+```
+
+- I found that port 31790 responded differently, I inserted the password and it responded with `KEYUPDATE`
+- I added `-ign_eof` which means ignore end-of-file on stdin and keep the TLS session open
+
+```bash
+openssl s_client -connect localhost:31790 -ign_eof
+```
+
+- It printed the private key, i then copied it into a file and named it `sshkey2.private` on my home user directory.
+- I changed the file permissions for only the user to read and write using `chmod 600 sshkey2.private`
+
+I then used the `ssh` command to enter level 17.
+
+```bash
+ssh -i sshkey2.private bandit17@bandit.labs.overthewire.org -p 2220
+```
+
+<img width="516" height="167" alt="Screenshot 2026-01-27 at 19 01 15" src="https://github.com/user-attachments/assets/738f9c62-bb83-45b2-8bcd-0270cf721584" />
